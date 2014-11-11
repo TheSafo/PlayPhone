@@ -32,6 +32,11 @@
             capablities[@"resolution"] = resolution;
             _data[@"capabilities"] = capablities;
         }
+        
+        if(op == 2)
+        {
+            
+        }
     }
     return self;
 }
@@ -46,7 +51,7 @@
     if ([NSJSONSerialization isValidJSONObject:_data])
     {
         // Serialize the dictionary
-        [json appendData:[NSJSONSerialization dataWithJSONObject:_data options:NSJSONWritingPrettyPrinted error:&err]];
+        [json appendData:[NSJSONSerialization dataWithJSONObject:_data options:0 error:&err]];
         
         // If no errors, let's view the JSON
         if (json != nil && err == nil)

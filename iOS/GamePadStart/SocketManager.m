@@ -107,7 +107,7 @@ static SocketManager* instance;
     if(!_connections) _connections = [NSMutableArray array];
     [_connections addObject:newGame];
     
-    [sender readDataWithTimeout:-1 buffer:newGame.resp bufferOffset:0 tag:0];
+    [sender readDataWithTimeout:-1 tag:0];
 }
 
 //Get Data Response SEE GAME CONNECTION

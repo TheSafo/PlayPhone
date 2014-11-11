@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GameConnection.h"
+#import "Base64.h"
 
 @interface GameTableCell : UITableViewCell
 

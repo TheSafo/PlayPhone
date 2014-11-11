@@ -8,6 +8,7 @@
 
 #import "GameListViewController.h"
 #import "SocketManager.h"
+#import "ControllerViewController.h"
 
 
 @interface GameListViewController ()
@@ -79,6 +80,20 @@
     [cell setConn:[SocketManager manager].connections[indexPath.row]];
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Request* r = [[Request alloc] initWithOp:2];
+    GameTableCell* temp = (GameTableCell *) [tableView cellForRowAtIndexPath:indexPath];
+    [temp.conn.socket writeData:[r serializeToJSON] withTimeout:-1 tag:2];
+    
+    ControllerViewController* toShow = [[ControllerViewController alloc] init];
+    toShow.game = ((GameTableCell *)[tableView cellForRowAtIndexPath:indexPath]).conn;
+    [self presentViewController:toShow animated:NO completion:^{
+        NSLog(@"Presenting ControllerViewController");
+    }];
+}
+
 
 
 /*

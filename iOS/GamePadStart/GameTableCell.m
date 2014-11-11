@@ -31,9 +31,9 @@
     self.textLabel.text = _conn.game[@"name"];
     self.detailTextLabel.text = _conn.game[@"desc"];
     
-//    NSData* temp = [NSData dataFromBase64String:_conn.game[@"icon"]];
-//    UIImage* icon = [UIImage imageWithData:temp];
-//    self.imageView.image = icon;
+    NSData* imgData = [NSData dataWithBase64EncodedString:_conn.game[@"icon"]];
+    UIImage* img = [[UIImage alloc] initWithData:imgData];
+    self.imageView.image = img;
 }
 
 

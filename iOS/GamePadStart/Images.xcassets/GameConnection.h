@@ -13,7 +13,7 @@
 @interface GameConnection : NSObject <GCDAsyncSocketDelegate>
 
 @property (nonatomic) GCDAsyncSocket* socket;
-@property (nonatomic,strong) NSMutableData* resp; //The buffer that holds all data from the socket
+@property (nonatomic,strong) NSMutableData* allData; //The buffer that holds all data from the socket
 
 //For all responses
 @property (nonatomic) NSMutableArray* sts;
@@ -24,8 +24,6 @@
 
 //For Join response and update config requests
 @property (nonatomic) NSMutableDictionary* padconfig;
-
-
 
 
 -(id)initWithSock: (GCDAsyncSocket *) sock;
